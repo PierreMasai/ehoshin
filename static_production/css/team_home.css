@@ -1,0 +1,236 @@
+.list-group p {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+
+.list-group-item { padding: 0px; }
+
+.list-group-item .list-group-item-heading {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+.list-group-item .list-group-item-heading h4 { display: inline-block; }
+
+.container-fluid .btn.flat {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 15px;
+    text-align: left;
+}
+
+.container-fluid .panel-heading .btn.flat {
+    text-align: center;
+}
+
+#hoshins_list .btn.flat span, #referenceList .btn.flat span, #exportList .btn.flat span {
+    margin-right: 5px;
+}
+
+#hoshin_indicators .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.indicator {
+    width: 125px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.indicators_box{
+    text-align: justify;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.indicator_part {
+    height: 50px;
+}
+
+.center {
+    width: 125px;
+    display: table-cell;
+    float: none;
+}
+
+.add-on{
+    cursor: pointer;
+}
+
+span.btn.flat {
+    cursor: inherit;
+}
+
+span.btn-default:active, span.btn-default:hover {
+     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) !important;
+     background-color: #FFF !important;
+     border: 1px solid transparent !important;
+}
+
+.btn-group .dropdown-toggle{
+    padding-left: 7px;
+
+}
+.btn-group .dropdown-toggle:first-child {
+    margin-left: -20px; !important;
+}
+
+.item {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 25px;
+}
+
+.panel-heading .row{
+    margin-left:0px;
+    margin-right:0px;
+}
+
+.date {
+    color: #757581;
+}
+
+#retour button{
+    width: auto;
+}
+
+.hoshin_menu_box *, .item_box *{
+    padding: 0px;
+}
+
+.hoshin_menu_box .dropdown-toggle {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+}
+
+.item_box .col-sm-1, #commentList .col-sm-1 {
+    text-align: right;
+}
+
+#noHoshinTextMo, #noHoshinTextNo {
+    margin-top: 50px;
+    text-align: center;
+    display: none;
+}
+
+.hoshins_box { visibility: hidden; }
+#hoshinInformation  { display: none; }
+
+.tt-menu {
+    background: #FFF;
+    width: 100%;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.twitter-typeahead {
+    width: 100%;
+}
+
+.tt-suggestion {
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1.5;
+    padding-left: 20px;
+}
+
+.tt-suggestion:hover, .tt-cursor {
+    background: #F1F2F3;
+}
+
+.header_links {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-top: -20px;
+}
+
+.header_links a {
+        color: #52525D;
+}
+
+#header_item h3 {
+    color: #52525D;
+}
+
+#itemList table, #priorityList table {
+	margin-bottom: 20px;
+}
+#itemList table, #priorityList table, #header_item table {
+    margin-left: 5px;
+
+    border-collapse: separate;
+    border-spacing: 10px 5px;
+}
+
+#itemList table tr td, #priorityList table tr td, #header_item table tr td{
+    vertical-align: top;
+}
+
+#itemList h3, #priorityList h3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    margin: 0px;
+}
+
+#itemList .item_box, #priorityList .item_box {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+
+#itemList h3 span, #priorityList h3 span {
+    pointer-events: none;
+}
+
+#itemList h3.bg_text, #priorityList h3.bg_text {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    color: #b9b9b9;
+}
+
+span.link {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+span.link.no-link {
+    color: #ccc;
+}
+
+.toggle {
+    margin: 5px;
+}
+
+#header_item table {
+    margin-bottom: 30px;
+}
+
+h1.important, h2.important, h3.important, h4.important, h5.important, p.important {
+   color: #ce4844;
+}
+
+h1.important:hover, h2.important:hover, h3.important:hover, h4.important:hover, h5.important:hover, p.important:hover{
+    color: #ae423e;
+}
+
+button.important {
+    background-color: #ce4844;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+button.important:hover {
+    background-color: #ae423e;
+}

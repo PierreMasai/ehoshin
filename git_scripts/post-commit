@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# A commit done on the master branch will be spread on all the mast/* branch
+# thanks to that hook
+
+br=`git branch | grep '*' | cut -d" " -f2`
+ci_id=`git rev-parse HEAD`
+
+if [ $br == "master" ]
+then
+	echo "++ Spread modification on the mast/* branch"
+
+	for current_branch in $(git branch | grep 'mast/' | cut -d" " -f3)
+	do
+		echo "+ $current_branch"
+		git checkout $current_branch > /dev/null && git cherry-pick $ci_id > /dev/null
+	done
+	git checkout master
+
+	echo "++ Done!"
+fi;

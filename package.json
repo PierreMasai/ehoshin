@@ -1,0 +1,11 @@
+{
+  "name": "eHoshin",
+  "version": "1.0.0",
+  "scripts": {
+    "watch_js": "./node_modules/.bin/babel hoshins/static/hoshins/jsx/ --out-dir hoshins/static/hoshins/js/ -watch"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.8.0",
+    "babel-preset-react": "^6.5.0"
+  }
+}

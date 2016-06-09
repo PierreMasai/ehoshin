@@ -1,0 +1,23 @@
+{% extends "teams/template.html" %}
+{% load static %}
+{% load form_utils %}
+
+{% block js_href %}
+    <script src="{% static 'js/vendors/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery.cookie.js' %}"></script>
+    <script src="{% static 'js/vendors/bootstrap-toggle.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row padding-h-10 footer-space">
+        <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 div-organisation">
+            <h2>Team settings</h2>
+            {% if message %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+            {% include "forms.html" with form=form action=request.path submit="Update Settings"%}
+        </div>
+    </div>
+{% endblock %}

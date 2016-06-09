@@ -1,0 +1,21 @@
+{% extends "hoshins/basics.html" %}
+{% load static %}
+
+{% block js_href %}
+    <script src="{% static 'js/vendors/underscore-min.js' %}"></script>
+    <script src="{% static 'hoshins/js/home.js' %}"></script>
+{% endblock %}
+
+{% block css_href %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+
+{% block title %}eHoshin{% endblock %}
+
+{% block base_ap %}
+    <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 div-organisation">
+        <h2>Oops, you are not a member of this team...</h2><br/ >
+        <h4>You can join it <a href="/">there</a></h4>
+    </div>
+{% endblock %}

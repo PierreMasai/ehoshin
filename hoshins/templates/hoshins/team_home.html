@@ -1,0 +1,112 @@
+{% extends "hoshins/basics.html" %}
+{% load static %}
+{% load url_utils %}
+
+{% block js_href %}
+    <script src="{% static 'js/vendors/underscore-min.js' %}"></script>
+    <script src="{% static 'js/vendors/backbone-min.js' %}"></script>
+
+    <script src="{% static 'js/vendors/react-with-addons.js' %}"></script>
+    <script src="{% static 'js/vendors/react-dom.js' %}"></script>
+
+    <script src="{% static 'js/vendors/bootstrap-colorpicker.js' %}"></script>
+    <script src="{% static 'js/vendors/typeahead.js' %}"></script>
+    <script src="{% static 'js/vendors/bootstrap-toggle.min.js' %}"></script>
+
+    <script src="{% static 'hoshins/js/breakline.js' %}"></script>
+
+    <script src="{% static 'hoshins/js/basics.js' %}"></script>
+    <script src="{% static 'hoshins/js/hoshin.js' %}"></script>
+    <script src="{% static 'hoshins/js/item.js' %}"></script>
+    <script src="{% static 'hoshins/js/comment.js' %}"></script>
+    <script src="{% static 'hoshins/js/user.js' %}"></script>
+    <script src="{% static 'hoshins/js/team_home.js' %}"></script>
+{% endblock %}
+
+{% block css_href %}
+    <link rel="stylesheet" href="{% static 'css/team_home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendors/colorpicker.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap-toggle.min.css' %}" />
+{% endblock %}
+
+
+{% block title %}eHoshin{% endblock %}
+
+{% block base_ap %}
+    <div class="col-sm-3 col-sm-push-9 hoshins_box">
+    {% if is_leader %}
+        <div class="row">
+            <h3 class="col-xs-12">Leader synthesis export</h3>
+            <a id="leaderSynthesis" class="col-sm-12" href="">
+                <button class="btn btn-default hoshins_items flat important text-center" aria-label="Left Align">
+                    <h4> Download the excel version</h4>
+                </button>
+            </a>
+        </div>
+    {% endif %}
+        <div class="row">
+            <h3 class="col-xs-12">Hoshin list</h3>
+            <div class="col-xs-12" id="hoshins_list"></div>
+        </div>
+
+        <div class="row">
+            <h3 class="col-xs-12">Reference documents</h3>
+            <div class="col-xs-12" id="referenceList">
+                {% for reference in references.all %}
+                    <div class="row">
+                        <a class="col-sm-12 show" href="{{ request.path|url_root|url_add:'api'|url_add:'references'|url_add:reference.name }}">
+                            <button class="btn btn-default hoshins_items flat" aria-label="Left Align">
+                                <span style="background-color: {{ reference.color }};">&nbsp;</span>
+                                <span>{{ reference.name }}</span>
+
+                            </button>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="hoshinInformation">
+            <div class="row" id="exportList">
+                <h3 class="col-xs-12"><span class="hoshin_name">Hoshin</span> export</h3>
+                <a id="excelExport" class="col-sm-12" href="">
+                    <button class="btn btn-default hoshins_items flat important text-center" aria-label="Left Align">
+    {#                    <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>#}
+                        <h4> Download the excel version</h4>
+                    </button>
+                </a>
+            </div>
+
+            <div class="row">
+                <h3 class="col-xs-12"><span class="hoshin_name">Hoshin</span> information</h3>
+                <div class="col-xs-12" id="hoshinIndicators"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-pull-3">
+    <div class="row">
+        <div id="header_item">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" id="itemList"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" id="commentList"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" id="priorityList"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" id="noHoshinTextMo">
+            <h2>Welcome in your new team!</h2>
+            <h4>You can create the first hoshin on the right. Choose a name and a color which will define it.</h4>
+        </div>
+        <div class="col-sm-12" id="noHoshinTextNo">
+            <h2>Welcome in the team!</h2>
+            <h4>There is no hoshin yet, please come back later.</h4>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

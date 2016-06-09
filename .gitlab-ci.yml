@@ -1,0 +1,17 @@
+before_script:
+  - uname -mrs
+  - uname -a
+  - apt-get update -qy
+  - apt-get install -y python3 python3-pip python-virtualenv firefox
+  - virtualenv -p python3 ven
+  - . venv/bin/activate
+  - pip install -r requirements.txt
+
+test:
+  script:
+  - . venv/bin/activate
+  - DJANGO_SETTINGS_MODULE="eHoshin.settings.local"
+  - export DJANGO_SETTINGS_MODULE
+  - python3 manage.py test
+  only:
+  - mast/common

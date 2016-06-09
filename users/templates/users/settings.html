@@ -1,0 +1,25 @@
+{% extends "hoshins/basics.html" %}
+{% load static %}
+
+{% block css_href %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/basics.css' %}" />
+{% endblock %}
+
+
+{% block title %}eHoshin{% endblock %}
+
+{% block base_ap %}
+    <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 div-organisation">
+        <h2>User settings</h2>
+        {% if message %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+        <h3>Profile</h3>
+        {% include "forms.html" with form=profile_form action="/accounts/me" submit="Update profile" id="profile" %}
+        <h3>Password</h3>
+        {% include "forms.html" with form=password_form action="/accounts/me" submit="Reset password" id="password" %}
+    </div>
+{% endblock %}

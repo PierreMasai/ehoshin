@@ -1,0 +1,32 @@
+{# A form template to show it in a 'bootstrap way' #}
+
+{% load form_utils %}
+
+{% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ form.non_field_errors }}
+    </div>
+{% endif %}
+
+<form role="form" action={{ action }} method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        {% if field.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ field.errors }}
+            </div>
+        {% endif %}
+
+        <div class="form-group form-group-lg row">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <input class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}"
+                   type="{{ field|field_type }}" autocomplete="{{ field|is_autocompleted }}"
+                   value="{{ field.value|default:"" }}" {{ field|is_checked|default:"" }}/>
+        </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <button name="{{ id|default:"" }}" type="submit" class="submit btn btn-default">{{ submit|default:"Submit" }}</button>
+        </div>
+    </div>
+</form>

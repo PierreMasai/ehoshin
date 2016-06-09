@@ -1,0 +1,110 @@
+[
+{
+  "fields": {
+    "name": "publicTeam",
+    "is_private": false,
+    "is_closed": false
+  },
+  "model": "teams.team",
+  "pk": 1
+},
+{
+  "fields": {
+    "nb_participants": 0,
+    "nb_items": 1,
+    "nb_chatty_commentators": 0,
+    "nb_users": 0,
+    "nb_implementation_priorities": 0,
+    "name": "hoshin",
+    "object_ptr": 1,
+    "nb_commentators": 0,
+    "color": "#81b9c3",
+    "nb_comments": 0
+  },
+  "model": "hoshins.hoshin",
+  "pk": 1
+},
+{
+  "fields": {
+    "target": "/",
+    "name": "first",
+    "object_ptr": 2,
+    "leader": "Tu tu",
+    "parent": 1
+  },
+  "model": "hoshins.item",
+  "pk": 1
+},
+{
+  "fields": {
+    "user_permissions": [],
+    "is_staff": false,
+    "groups": [],
+    "last_name": "A",
+    "email": "",
+    "is_active": true,
+    "last_login": "2016-05-30T14:09:18.220Z",
+    "password": "pbkdf2_sha256$20000$y2altVotQRcs$9c7xakV+uNBLl3IBT3zcgnhqrUsKPD3Ub4EbdUDuNBM=",
+    "first_name": "T",
+    "username": "ta",
+    "date_joined": "2016-05-30T07:56:49.635Z",
+    "is_superuser": false
+  },
+  "model": "auth.user",
+  "pk": 1
+},
+{
+  "fields": {
+    "user_permissions": [],
+    "is_staff": false,
+    "groups": [],
+    "last_name": "Toussaint",
+    "email": "",
+    "is_active": true,
+    "last_login": "2016-05-30T13:55:03.936Z",
+    "password": "pbkdf2_sha256$20000$wXi8LCXRX1B4$idiCMuyThuhtfxKdYP9ka08bCSb9j6TiiVQC3UIM9b4=",
+    "first_name": "Nicolas",
+    "username": "admin",
+    "date_joined": "2016-05-30T07:57:19.206Z",
+    "is_superuser": false
+  },
+  "model": "auth.user",
+  "pk": 2
+},
+{
+  "fields": {
+    "member": 1,
+    "type": "OW",
+    "team": 1
+  },
+  "model": "users.membership",
+  "pk": 1
+},
+{
+  "fields": {
+    "member": 2,
+    "type": "NO",
+    "team": 1
+  },
+  "model": "users.membership",
+  "pk": 2
+},
+{
+  "fields": {
+    "owner": 1,
+    "owner_temp": "",
+    "belongs_to": 1
+  },
+  "model": "hoshins.object",
+  "pk": 1
+},
+{
+  "fields": {
+    "owner": 1,
+    "owner_temp": "",
+    "belongs_to": 1
+  },
+  "model": "hoshins.object",
+  "pk": 2
+}
+]

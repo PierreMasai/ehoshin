@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="indicator panel panel-default">
+  <div class="panel-heading indicator_part without_border" style="background-color: {{ color }}">
+      <img src="{% static "pictures/icons/"|add:picture_name %}" height="30">
+  </div>
+  <div class="panel-body indicator_part">
+  <div class="span6 center">
+    <span>{% block pattern_value %}{{ value }}{% endblock %}</span>
+  </div>
+  </div>
+</div>

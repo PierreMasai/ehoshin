@@ -1,0 +1,125 @@
+html {
+    overflow-x:hidden;
+    overflow-y: visible;
+}
+
+html, body, section {
+    height:100%;
+}
+
+header {
+    height: 72px;
+}
+
+section {
+    margin-top: -91px;
+    padding-top: 72px;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.div-organisation { padding: 0; }
+
+.team_menu{
+    height: calc(100% + 20px);
+    list-style: none;
+    background-color: #363644;
+    color: #999999;
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.team_menu li a:hover {
+    background-color: #434352;
+}
+
+.team_menu h3 {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.team_menu h4 {
+    margin: 0;
+}
+
+.team_menu li a {
+    display: block;
+    width:100%;
+    padding: 10px 20px 10px 20px;
+    color: white;
+}
+
+.div-form {
+    list-style: none;
+}
+
+.div-form {
+    background-color: inherit;
+    border: 1px solid #363644;
+    margin-bottom: 30px;
+}
+
+.div-form * {
+    border: 0;
+    box-shadow: none;
+    background-color: inherit;
+}
+
+.div-form button:link,.div-form button:visited, .div-form button:hover, .div-form button:active {
+    background-color: inherit;
+    border: 0;
+    box-shadow: none;
+}
+
+#user-filter>form>div       { width: 100%; }
+#user-filter>form>div>span  { width: 25%;  }
+
+.div-form input, #add-user>form, #add-user>form>div, #add-user>form>div>input, #user-filter>form>div>input { height: 54px; }
+#add-user>form, #add-user>form>div, .twitter-typeahead, .twitter-typeahead input { width:100%; }
+
+#add-user button { border-left: 1px solid #363644; }
+.div-form .input-group-addon { width: inherit; }
+
+.tt-menu {
+    background-color: white;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.3333333;
+    padding: 10px;
+    border: 1px solid #363644;
+    margin-left: -1px;
+}
+
+.discreet { color: lightgray; }
+
+
+#userList td { vertical-align: middle; }
+
+select, input, .form-control { font-size: 16px; }
+
+#error-user { display: none; }
+
+#teamDashboardTabs {
+    padding-right: 0;
+    margin-bottom: 20px;
+}
+
+#teamDashboardTabs .nav-pills>li.active>a {
+    background-color: #ce4844;
+    color: white;
+}
+
+#teamDashboardTabs .nav-pills>li>a:hover {
+    background-color: #ae423e;
+    color: white;
+}
+
+#teamDashboardTabs .nav-pills>li>a { font-size: 20px; }
+
+#teamDashboardIndicators h3 { padding-left: 10px; }
+
+.row-curve { margin-top: 40px; }
+
+.padding-h-10 { padding: 0 25px; }

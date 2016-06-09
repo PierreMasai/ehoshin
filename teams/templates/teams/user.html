@@ -1,0 +1,80 @@
+{% extends "teams/template.html" %}
+{% load static %}
+{% load form_utils %}
+
+{% block js_href %}
+    <script src="{% static 'js/vendors/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery.cookie.js' %}"></script>
+
+    <script src="{% static 'js/vendors/underscore-min.js' %}"></script>
+    <script src="{% static 'js/vendors/backbone-min.js' %}"></script>
+
+    <script src="{% static 'js/vendors/react-with-addons.js' %}"></script>
+    <script src="{% static 'js/vendors/react-dom.js' %}"></script>
+
+    <script src="{% static 'js/vendors/bootstrap-toggle.min.js' %}"></script>
+    <script src="{% static 'js/vendors/handlebars-v4.0.5.js' %}"></script>
+    <script src="{% static 'js/vendors/typeahead.js' %}"></script>
+
+    <script src="{% static 'hoshins/js/breakline.js' %}"></script>
+    <script src="{% static 'hoshins/js/basics.js' %}"></script>
+
+    <script src="{% static 'hoshins/js/user_settings.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row padding-h-10">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-center">Add a user</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-10">
+                <div class="alert alert-danger" id="error-user" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span>
+                  Enter a valid user name
+                </div>
+                <div id="add-user" class="div-form">
+                    <form>
+                        <div class="input-group">
+                          <input type="text" class="form-control typeahead" placeholder="Username or full name"/>
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Add user</button>
+                          </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-center">User list</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-10">
+                <div id="user-filter" class="div-form">
+                    <form>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon">
+                              <select class="form-control">
+                                <option>All</option>
+                                <option value="true">Moderators</option>
+                                <option value="false">Basic users</option>
+                              </select>
+                            </span>
+                          <input type="text" class="form-control" placeholder="Filter users"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table" id="userList"></table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

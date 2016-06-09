@@ -1,0 +1,27 @@
+{% extends "hoshins/basics.html" %}
+{% load static %}
+
+{% block js_href %}
+    <script src="{% static 'js/vendors/bootstrap-toggle.min.js' %}"></script>
+{% endblock %}
+
+{% block css_href %}
+    <link rel="stylesheet" href="{% static 'css/team_settings.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap-toggle.min.css' %}" />
+{% endblock %}
+
+
+{% block title %}eHoshin{% endblock %}
+
+{% block base_ap %}
+    <ul class="col-md-2 team_menu">
+        <li><h4><a href=/{{ team_name }} >Go back to the team</a></h4></li>
+        <li><h3>Team Settings</h3></li>
+        <li><h4><a href=/{{ team_name }}/settings>Dashboard</a></h4></li>
+        <li><h4><a href=/{{ team_name }}/settings/basics>Basics</a></h4></li>
+        <li><h4><a href=/{{ team_name }}/settings/users>Users</a></h4></li>
+    </ul>
+    <div class="col-md-10 div-organisation">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}

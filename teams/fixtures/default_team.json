@@ -1,0 +1,65 @@
+[
+{
+  "pk": 1,
+  "fields": {
+    "is_private": false,
+    "is_closed": false,
+    "name": "publicTeam"
+  },
+  "model": "teams.team"
+},
+{
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$20000$y2altVotQRcs$9c7xakV+uNBLl3IBT3zcgnhqrUsKPD3Ub4EbdUDuNBM=",
+    "is_superuser": false,
+    "last_login": "2016-05-30T07:56:49.892Z",
+    "username": "ta",
+    "last_name": "A",
+    "user_permissions": [],
+    "is_active": true,
+    "email": "",
+    "date_joined": "2016-05-30T07:56:49.635Z",
+    "groups": [],
+    "is_staff": false,
+    "first_name": "T"
+  },
+  "model": "auth.user"
+},
+{
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$20000$wXi8LCXRX1B4$idiCMuyThuhtfxKdYP9ka08bCSb9j6TiiVQC3UIM9b4=",
+    "is_superuser": false,
+    "last_login": "2016-05-30T13:35:02.678Z",
+    "username": "admin",
+    "last_name": "Toussaint",
+    "user_permissions": [],
+    "is_active": true,
+    "email": "",
+    "date_joined": "2016-05-30T07:57:19.206Z",
+    "groups": [],
+    "is_staff": false,
+    "first_name": "Nicolas"
+  },
+  "model": "auth.user"
+},
+{
+  "pk": 1,
+  "fields": {
+    "member": 1,
+    "type": "OW",
+    "team": 1
+  },
+  "model": "users.membership"
+},
+{
+  "pk": 2,
+  "fields": {
+    "member": 2,
+    "type": "NO",
+    "team": 1
+  },
+  "model": "users.membership"
+}
+]

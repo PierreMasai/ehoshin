@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% load arrays_utils %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/basics.css' %}" />
+        <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
+        {% block css_href %}{% endblock %}
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body class="container-fluid">
+        <header class="row">
+            <div class="col-xs-12"></div>
+                <nav class="navbar navbar-default">
+                  <div class="container-fluid">
+
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="/">
+                          <img alt="eHoshin" src="{% static 'pictures/logo.png' %}" height="35">
+                          Hoshin Kanri
+                      </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav"></ul>
+
+                      <ul class="nav navbar-nav navbar-right">
+                          {% comment %}<form class="navbar-form navbar-left" role="search">
+                            <input type="text" class="form-control" placeholder="Search">
+                          </form>{% endcomment %}
+                          {% if user.is_authenticated %}
+                              <li class="dropdown" id="eventsDropdown"></li>
+                              <li class="dropdown" id="teamDropdown">
+                                  <a href="" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                      <span class="title"></span>
+                                      <span class="caret"></span>
+                                  </a>
+                                  <ul class="dropdown-menu"></ul>
+                              </li>
+                              <li class="dropdown" id="userDropdown">
+                                  <a href="" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                      {{ user.first_name }} {{ user.last_name }}
+                                      <span class="caret"></span>
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      <li>
+                                          <a href="/accounts/me">
+                                            <i class="glyphicon glyphicon-edit"></i>Edit my profile
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="/accounts/logout">
+                                            <i class="glyphicon glyphicon-off"></i>Logout
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </li>
+                          {% else %}
+                              {% if canSignup %}
+                                  <li>
+                                      <a href="/accounts/signup" class="red" type="button" aria-haspopup="true" aria-expanded="true">
+                                        Signup
+                                      </a>
+                                  </li>
+                              {% endif %}
+                              <li>
+                                  <a href="/accounts/login" class="btn btn-default" type="button" aria-haspopup="true" aria-expanded="true">
+                                    Login
+                                  </a>
+                              </li>
+                          {% endif %}
+                      </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </header>
+        <!-- Sidebar -->
+        <div id="wrapper" class="toggled">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="" class="menu-toggle">
+                        <h3 class="glyphicon glyphicon-remove"></h3>
+                    </a>
+                    <h2>Notifications</h2>
+                </li>
+                <li id="notifications">
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <section class="row">
+            {% block base_ap %}{% endblock %}
+        </section>
+    </body>
+
+        <script src="{% static 'js/vendors/jquery-1.11.3.min.js' %}"></script>
+        <script src="{% static 'js/vendors/jquery.cookie.js' %}"></script>
+        <script src="{% static 'js/vendors/bootstrap.min.js' %}"></script>
+
+    <script>
+        String.prototype.replaceAll = function(search, replacement) {
+            var target = this;
+            return target.replace(new RegExp(search, 'g'), replacement);
+        };
+
+        var is_user = function(is_mod) {
+            is_mod = is_mod.toLowerCase();
+            if(is_mod === "")
+                return false;
+            else
+                return $.parseJSON(is_mod);
+        };
+
+        var getCurrentTeam = function(team_name) {
+            return (team_name === "") ? DEFAULT_TEAM_NAME : team_name;
+        };
+
+        var isTeam = function(team_name) {
+            return team_name !== DEFAULT_TEAM_NAME;
+        };
+
+        var DEFAULT_TEAM_NAME = "Your teams";
+        var ICONS_URL = "{% static 'pictures/icons/' %}";
+        var TEAM_NAME = getCurrentTeam("{{ team_name }}");
+
+        var USER = {
+            'username':  "{{ user.username }}"          ,
+            'first_name': "{{ user.first_name }}"        ,
+            'last_name':  "{{ user.last_name }}"         ,
+            'teams': JSON.parse("{{ user.member_of.all|names }}".replaceAll('&#39;', '"')) ,
+            'isModerator': is_user("{{ user.is_moderator }}"),
+            'isOwner': is_user("{{ user.is_owner }}"),
+            'isLeader': is_user("{{ is_leader }}"),
+            'id':        "{{ user.id }}"                ,
+            'token':     "{{ request.session.token }}"  ,
+        };
+
+
+        var ed = $("#eventsDropdown");
+        if(isTeam(TEAM_NAME))
+            ed.append(
+                    '<a href="" class="menu-toggle">' +
+                        'Notifications ' +
+                        '<span class="badge" id="NbNotifications">0</span>' +
+                    '</a>');
+
+
+        $.find('.menu-toggle').forEach(function(el) {
+            $(el).click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        });
+
+
+        var td = $("#teamDropdown");
+        td.find(".title").text(TEAM_NAME);
+
+        var teamList = td.find("ul");
+        teamList.empty();
+
+        var teamListToShow = false;
+
+        if(isTeam(TEAM_NAME) && (USER.isOwner || USER.isModerator)) {
+            teamListToShow = true;
+            teamList.append('<li><h4>Team Settings</h4></li>');
+            teamList.append('<li><a href=/' + TEAM_NAME + '/settings>Dashboard</a></li>');
+            teamList.append('<li><a href=/' + TEAM_NAME + '/settings/basics>Basics</a></li>');
+            teamList.append('<li><a href=/' + TEAM_NAME + '/settings/users>Users</a></li>');
+        }
+
+        if(USER.teams.length > 0) {
+            teamList.append('<li><h4>Change team</h4></li>');
+            var otherTeam = false;
+            for(var i in USER.teams) {
+                var name = USER.teams[i];
+                if(name !== TEAM_NAME) {
+                    otherTeam = true;
+                    teamList.append('<li><a href=/' + name + '>' + name + '</a></li>');
+                }
+            }
+
+            if(!otherTeam) {
+                if(teamListToShow)
+                    teamList.append('<li class="any">Any</li>');
+                else {
+                    td.empty();
+                    td.append("<a><span>" + TEAM_NAME + "</span></a>")
+                }
+            }
+
+        }
+        else
+            td.remove();
+    </script>
+
+    {% block js_href %}{% endblock %}
+</html>
+

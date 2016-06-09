@@ -1,0 +1,20 @@
+{% extends "hoshins/basics.html" %}
+{% load static %}
+
+{% block js_href %}
+    <script src="{% static 'js/vendors/underscore-min.js' %}"></script>
+    <script src="{% static 'hoshins/js/home.js' %}"></script>
+{% endblock %}
+
+{% block css_href %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+
+{% block title %}eHoshin{% endblock %}
+
+{% block base_ap %}
+    <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 div-organisation">
+        <h2>Oops, this reference doesn't exist at the moment...</h2><br/ >
+    </div>
+{% endblock %}

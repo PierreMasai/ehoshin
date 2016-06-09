@@ -1,0 +1,55 @@
+{% extends "teams/template.html" %}
+{% load static %}
+{% load form_utils %}
+
+{% block js_href %}
+    <script src="{% static 'js/vendors/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery.cookie.js' %}"></script>
+    <script src="{% static 'js/vendors/Chart.min.js' %}"></script>
+
+    <script src="{% static 'js/vendors/underscore-min.js' %}"></script>
+    <script src="{% static 'js/vendors/backbone-min.js' %}"></script>
+
+    <script src="{% static 'js/vendors/react-with-addons.js' %}"></script>
+    <script src="{% static 'js/vendors/react-dom.js' %}"></script>
+
+    <script src="{% static 'js/vendors/bootstrap-toggle.min.js' %}"></script>
+    <script src="{% static 'js/vendors/handlebars-v4.0.5.js' %}"></script>
+    <script src="{% static 'js/vendors/typeahead.js' %}"></script>
+
+    <script src="{% static 'hoshins/js/breakline.js' %}"></script>
+    <script src="{% static 'hoshins/js/basics.js' %}"></script>
+
+    <script src="{% static 'hoshins/js/dashboard_settings.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div id="teamDashboardTabs" class="col-xs-12"></div>
+    </div>
+    <div class="row padding-h-10">
+        <div class="row" id="teamDashboardIndicators"></div>
+        <div class="row row-curve padding-">
+            <div class="col-xs-offset-1 col-xs-10">
+                <canvas id="curve" height="300"> </canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Export information</h2>
+            </div>
+            <div class="col-xs-12">
+                <a id="itemSynthesis" href="">
+                    <button class="btn btn-default text-center" aria-label="Left Align">
+                        <h4>The synthesis</h4>
+                    </button>
+                </a>
+                <a id="hoshinSynthesis" href="">
+                    <button class="btn btn-default text-center" aria-label="Left Align">
+                        <h4>The statistics</h4>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
