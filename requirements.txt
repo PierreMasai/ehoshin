@@ -22,7 +22,7 @@ pbr==1.8.1
 proboscis==1.2.6.0
 psutil==4.1.0
 psycopg2==2.6.1
-requests==2.10.0
+requests==2.20.0
 selenium==2.53.2
 six==1.10.0
 static3==0.6.1
